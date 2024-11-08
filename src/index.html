@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            transition: background-color 0.5s ease;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2rem;
+            margin: 0;
+            transition: color 0.5s ease;
+        }
+
+        .button {
+            display: block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1 id="title">Hola Dockerfile y DockerCompose</h1>
+        <button class="button" id="colorChangeButton">Haz clic aquí para cambiar colores</button>
+    </div>
+
+    <script>
+        const colors = [
+            { background: "#f4f4f9", text: "#333" },
+            { background: "#ff6347", text: "#fff" },
+            { background: "#3cb371", text: "#fff" },
+            { background: "#add8e6", text: "#333" },
+            { background: "#ffcc00", text: "#333" }
+        ];
+
+        let currentIndex = 0;
+
+        document.getElementById('colorChangeButton').addEventListener('click', function() {
+            currentIndex = (currentIndex + 1) % colors.length;
+            document.body.style.backgroundColor = colors[currentIndex].background;
+            document.getElementById('title').style.color = colors[currentIndex].text;
+        });
+    </script>
+</body>
+</html>
